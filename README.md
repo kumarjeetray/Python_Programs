@@ -1,1 +1,1 @@
-Leaning programs with Python from Geeks for Geeks
+Leaning programs with Python.
