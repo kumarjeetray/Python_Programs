@@ -1,1 +1,1 @@
-Leaning programs with Python.
+Learning Python
