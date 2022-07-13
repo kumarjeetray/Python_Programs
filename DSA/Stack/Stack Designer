@@ -1,0 +1,33 @@
+#User function Template for python3
+
+#_push function to insert elements of array to stack
+def _push(arr):
+    s = []
+    for i in range(len(arr)):
+        s.append(arr[i])
+    return s
+    
+    
+
+#_pop function to print elements of the stack remove as well
+def _pop(stack):
+    #print top and pop for each element until it becomes empty
+    for i in range(len(stack)-1,-1,-1):
+        print(stack[i],end=' ')
+        stack.pop(i)
+
+
+
+#{ 
+#  Driver Code Starts
+#Initial Template for Python 3
+
+if __name__ == "__main__":
+    for _ in range(int(input())):
+        n = int(input())
+        arr=[int(i) for i in input().split()]
+        stack = _push(arr)
+        _pop(stack)
+        print()
+
+# } Driver Code Ends
