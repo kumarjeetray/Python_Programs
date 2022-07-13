@@ -1,0 +1,40 @@
+#User function Template for python3
+
+# Function to check if elements are 
+# pairwise consecutive in stack 
+def pairWiseConsecutive(l):
+    
+    #add code here
+    flag = True
+    if len(l) % 2 == 0:
+        for i in range(len(l)-1):
+            if l[i+1] - l[i] == 1:
+                flag = True
+            else:
+                flag = False
+                break
+    else:
+        l.pop(-1)
+        for i in range(len(l)-1):
+            if l[i+1] - l[i] == 1:
+                flag = True
+            else:
+                flag = False
+                break
+    return flag
+
+#{ 
+#  Driver Code Starts
+#Initial Template for Python 3
+
+if __name__=='__main__':
+    t=int(input())
+    for i in range(t):
+        n=int(input())
+        l=list(map(int,input().split()))
+        pairWiseConsecutive(l)
+        if(pairWiseConsecutive(l)==True):
+            print("Yes")
+        else:
+            print("No")
+# } Driver Code Ends
