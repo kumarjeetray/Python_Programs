@@ -1,0 +1,38 @@
+#User function Template for python3
+
+class Solution:
+    def reverseEqn(self, s):
+        # code here
+        s1 = []
+        st = ''
+        for i in range(len(s)):
+            if(s[i]=='+' or s[i] =='-' or s[i]=='/' or s[i]=='*' or s[i]=='%'):
+                s1.append(st)
+                st = ''
+                st = st + s[i]
+                #print(st)
+                s1.append(st)
+                st = ''
+            else:
+                st = st + s[i]
+                #print(st)
+        s1.append(st)
+        rev = ''
+        for i in range(len(s1)):
+            rev = rev + s1.pop()
+        return rev
+                
+        
+
+#{ 
+#  Driver Code Starts
+#Initial Template for Python 3
+
+if __name__ == '__main__':
+    t = int(input())
+    for _ in range(t):
+        s = input().strip()
+        ob = Solution()
+        ans = ob.reverseEqn(s)
+        print(ans)
+# } Driver Code Ends
