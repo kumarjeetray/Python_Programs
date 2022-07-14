@@ -1,0 +1,39 @@
+def nearestleftsmaller(a,n):
+    ans = []
+    stack = []
+    for i in range(n):
+        while(len(stack)!=0 and a[i]<=stack[-1]):
+            stack.pop()
+        if len(stack)==0:
+            ans.append(0)
+        else:
+            ans.append(stack[-1])
+#         ans.append(0 if len(stack)==0 else stack[-1])
+        stack.append(a[i])
+    return ans
+    
+def nearestrightsmaller(a,n):
+    ans = [0 for i in range(n)]
+    stack = []
+    for i in range(n-1,-1,-1):
+        while(len(stack)!=0 and a[i]<=stack[-1]):
+            stack.pop()
+        if len(stack)==0:
+            ans[i] = 0
+        else:
+            ans[i] = stack[-1]
+#         ans.append(0 if len(stack)==0 else stack[-1])
+        stack.append(a[i])
+    return ans
+    
+    
+class Solution:
+    # Your task is to complete this function
+    # Function should return an integer denoting the required answer
+    def findMaxDiff(self, a, n):
+        nrs =  nearestrightsmaller(a,n)
+        nls = nearestleftsmaller(a,n)
+        res = 0
+        for i in range(n):
+            res = max(res,abs(nls[i]-nrs[i]))
+        return res
