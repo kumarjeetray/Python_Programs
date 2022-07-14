@@ -1,0 +1,34 @@
+#User function Template for python3
+
+class Solution:
+    def findMaxLen(ob, S):
+        # code here
+        if len(S) == 0:
+          return 0
+        stack = [-1]
+        res = 0
+       
+        for i,c in enumerate(S):
+            if c == '(':
+                stack.append(i)
+            else:
+                stack.pop()
+               
+                if len(stack) == 0:
+                    stack.append(i)
+                else:
+                    res = max(res,i-stack[-1])
+        return res
+
+#{ 
+#  Driver Code Starts
+#Initial Template for Python 3
+
+if __name__ == '__main__': 
+    t = int (input ())
+    for _ in range (t):
+        S=input()
+        
+        ob = Solution()
+        print(ob.findMaxLen(S))
+# } Driver Code Ends
