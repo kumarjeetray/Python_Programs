@@ -1,0 +1,23 @@
+#{ 
+#Driver Code Starts
+
+ # } Driver Code Ends
+def reverse(S):
+    
+    #Add code here
+    rev = ""
+    stack = []
+    for i in range(len(S)):
+        stack.append(S[i])
+    for i in range(len(S)):
+        rev = rev + stack.pop(-1)
+    return rev
+
+#{ 
+#Driver Code Starts.
+if __name__=='__main__':
+    t=int(input())
+    for i in range(t):
+        str1=input()
+        print(reverse(str1))
+#} Driver Code Ends
