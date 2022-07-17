@@ -1,0 +1,25 @@
+class Solution:
+    def thirdLargest(self,a, n):
+        # code here
+        flag = 0
+        a.sort()
+        temp = a[n-1]
+        for i in range(n-1,-1,-1):
+            if a[i] < temp:
+                temp = a[i]
+                flag += 1
+                if flag == 2:
+                    return temp
+        return -1      
+
+
+#{ 
+ # Driver Code Starts
+# Your code goes here
+if __name__=='__main__':
+    t = int(input())
+    for i in range(t):
+        n = int(input())
+        arr = list(map(int, input().strip().split()))
+        print(Solution().thirdLargest(arr, n))
+# } Driver Code Ends
