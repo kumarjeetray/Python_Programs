@@ -1,0 +1,57 @@
+#User function Template for python3
+
+class Solution:
+    def flippedIndexes(self, a, n, getAnswer):
+        # Your code goes here
+        count = 0
+        k = 0
+        for i in range(n-1):
+            if a[i] == 'T':
+                count = count + 1
+                getAnswer[k] = i + 1
+                k = k + 1
+                a[i] = 'H'
+                if a[i+1] == 'T':
+                    a[i+1] = 'H'
+                else:
+                    a[i+1] = 'T'
+        if a[n-1] == 'T':
+            getAnswer[k] = n
+            count = count + 1
+        return count
+        
+        
+        
+
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+def main():
+
+    T = int(input())
+
+    while(T > 0):
+        n = int(input())
+        a = [x for x in input().strip().split()]
+        getAnswer = [0]*n
+        ob=Solution()
+        count = ob.flippedIndexes(a, n, getAnswer)
+        
+        print(count)
+        if count>0:
+            for i in range(count):
+                print(getAnswer[i], end=' ')
+        else:
+            print(-1, end=' ')
+        print()
+        
+        T -= 1
+
+
+if __name__ == "__main__":
+    main()
+
+
+# } Driver Code Ends
