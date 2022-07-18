@@ -1,0 +1,30 @@
+#User function Template for python3
+
+def min_soldiers (arr, n, K) : 
+    #Complete the function
+    li=[]
+    for i in arr:
+        li.append((K-i%K)%K)
+    li.sort()
+    s=0
+    for i in range((n+1)//2):
+        s=s+li[i]
+    return s   
+
+
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+for _ in range(0,int(input())):
+    n, K = map(int, input().split())
+    arr = list(map(int, input().strip().split()))
+    ans = min_soldiers(arr, n, K)
+    print(ans)
+
+
+
+
+
+# } Driver Code Ends
