@@ -1,0 +1,31 @@
+class Solution:
+    def findSwapValues(self,a, n, b, m):
+        # Your code goes here
+        sum1, sum2 = sum(a),sum(b)
+        count = 0
+        sum1, sum2 = sum(a), sum(b)
+        for i in set(a):
+            for j in set(b):
+                new_sum1 = sum1 - i + j
+                new_sum2 = sum2 - j + i
+                if new_sum1 == new_sum2:
+                    return 1
+        return -1
+                
+
+
+#{ 
+ # Driver Code Starts
+if __name__ == '__main__': 
+    
+    
+    t=int(input())
+    for _ in range(0,t):
+        l=list(map(int,input().split()))
+        n=l[0]
+        m=l[1]
+        a = list(map(int,input().split()))
+        b = list(map(int, input().split()))
+        ob = Solution()
+        print(ob.findSwapValues(a,n,b,m))
+# } Driver Code Ends
