@@ -1,0 +1,38 @@
+#User function Template for python3
+
+import math
+class Solution:
+    def minSum(self, a, N, K):
+        # code here
+        q = []
+        for i in range(N):
+            a.sort()
+            calc = a[-1] * 0.1
+            if calc > K and a[-1] > calc:
+                a[-1] -= calc
+            else:
+                if a[-1] < K:
+                    a[-1] = 0
+                else:
+                    a[-1] -= K
+        sum = 0
+        print(a)
+        for i in range(len(a)):
+            sum += a[i]
+        sum = math.floor(sum)
+        return sum
+            
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+if __name__ == '__main__': 
+    t = int (input ())
+    for _ in range (t):
+        N,K = input().split()
+        a = []
+        a = list(map(int, input().split()))
+        ob = Solution()
+        print(ob.minSum(a,int(N),int (K)))
+# } Driver Code Ends
