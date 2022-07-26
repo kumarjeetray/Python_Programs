@@ -1,0 +1,30 @@
+#User function Template for python3
+
+class Solution:
+    def check4(self,n):
+        while(n>0):
+            if n%10 == 4:
+                return True
+            n = n//10
+        return False
+    def countNumberswith4(self, N):
+        if(N<4):
+            return 0
+        c = 1
+        for i in range(5,N+1):
+            if(self.check4(i) == True):
+                c = c+1
+        return c
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+if __name__ == '__main__': 
+    t = int (input ())
+    for _ in range (t):
+        N=int(input())
+        
+        ob = Solution()
+        print(ob.countNumberswith4(N))
+# } Driver Code Ends
