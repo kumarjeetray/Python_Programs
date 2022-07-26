@@ -1,0 +1,33 @@
+import heapq
+class Solution:
+    def minSum(self, arr, n):
+        # Your code goes here
+        q=[]
+        num1 = 0
+        num2 = 0
+        for i in range(n):
+            heapq.heappush(q,arr[i])
+        for i in range(n):
+            if i % 2 == 0:
+                num1 = num1 * 10 + heapq.heappop(q)
+            else:
+                num2 = num2* 10 + heapq.heappop(q)
+        sum = num1 + num2
+        return sum
+
+
+#{ 
+ # Driver Code Starts
+
+import heapq as hq
+
+if __name__ == '__main__':
+    T = int(input())
+
+    for tcs in range(T):
+        n = int(input())
+        arr = [int(x) for x in input().split()]
+        ob=Solution()
+        print(ob.minSum(arr,n))
+
+# } Driver Code Ends
