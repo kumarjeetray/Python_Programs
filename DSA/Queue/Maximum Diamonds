@@ -1,0 +1,31 @@
+#User function Template for python3
+import heapq
+class Solution:
+    def maxDiamonds(self, A, N, K):
+        # code here
+        dia = []
+        heapq.heapify(dia)
+        for i in range(N):
+            heapq.heappush(dia,-1 * A[i])
+        largest = 0
+        while K > 0:
+            temp = heapq.heappop(dia)
+            temp *= -1
+            largest += temp
+            heapq.heappush(dia,-1*(temp//2))
+            K -= 1
+        return largest
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+if __name__ == '__main__': 
+    t = int (input ())
+    for _ in range (t):
+        N,K=map(int,input().split())
+        A=list(map(int,input().split()))
+        
+        ob = Solution()
+        print(ob.maxDiamonds(A,N,K))
+# } Driver Code Ends
