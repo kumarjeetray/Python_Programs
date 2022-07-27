@@ -1,0 +1,28 @@
+#User function Template for python3
+
+class Solution:
+    def longestSubsequence(self, N, A):
+        # code here
+        subse = [1 for i in range(N)]
+        for i in range(N):
+            for j in range(i):
+                if abs(A[i]-A[j])==1:
+                    subse[i] = max(subse[i],subse[j]+1)
+        return max(subse)
+
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+if __name__ == '__main__':
+    t = int(input())
+    for _ in range(t):
+        N = int(input())
+        A = input().split()
+        for itr in range(N):
+            A[itr] = int(A[itr])
+        
+        ob = Solution()
+        print(ob.longestSubsequence(N, A))
+# } Driver Code Ends
